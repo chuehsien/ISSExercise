@@ -30,6 +30,7 @@ public class ISSTest {
 		myList.add(new ListItem("b"));
 		assertEquals(myList.get(0).getName(),"a");
 		assertEquals(myList.get(1).getName(),"b");
+		System.out.print("hi");
 		
 		
 	}
