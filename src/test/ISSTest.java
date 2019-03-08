@@ -195,5 +195,23 @@ public class ISSTest {
 		assertEquals(myList.get(2).getName(),"c");
 		assertEquals(myList.get(3).getName(),"d");
 	}
+	
+	
+	@Test
+	public void searchItem()
+	{
+		myList.add(new ListItem("a"));
+		myList.add(new ListItem("c"));
+		myList.add(new ListItem("d"));
+		myList.add(new ListItem("b"));
+		
+		ArrayList<ListItem> newList = new ArrayList<>();
+
+		newList = myList.searchItem("a");
+		
+		assertEquals(newList.get(0).getName(),"a");
+		assertEquals(newList.size(),1);
+
+	}
 
 }

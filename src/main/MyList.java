@@ -100,5 +100,20 @@ public class MyList {
 			}
 		});
 	}
+	
+	public ArrayList<ListItem> searchItem(String searchString)
+	{
+		
+		ArrayList<ListItem> newList = new ArrayList<>();
+		
+		for (ListItem i : new ArrayList<>(myList)) {
+			if (i.getName().contains(searchString)) {
+				newList.add(i);
+				
+			}
+		}
+		
+		return newList;
+	}
 
 }

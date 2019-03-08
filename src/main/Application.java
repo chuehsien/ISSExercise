@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
 	public static MyList myList;
 	public static ConsoleReader cr;
@@ -10,6 +13,9 @@ public class Application {
 		System.out.println("2. Add Item");
 		System.out.println("3. Remove Item");
 		System.out.println("4. Toggle item check");
+		System.out.println("5. Sort List (Ascending)");
+		System.out.println("6. Sort List (Descending)");
+		System.out.println("7. Search Item");
 		System.out.println();
 
 	}
@@ -48,6 +54,19 @@ public class Application {
 			toggleItemCheck();
 			break;
 		}
+		case "5": {
+			sortListAscending();
+			break;
+		}
+		case "6": {
+			sortListDescending();
+			break;
+		}
+		
+		case "7": {
+			searchItem();
+			break;
+		}
 		}
 	}
 
@@ -55,11 +74,9 @@ public class Application {
 		if (myList.viewList().isEmpty()) {
 			System.out.println("List is empty!");
 		}
+		displayAllItem(myList.viewList());
 
-		for (int i = 0; i < myList.viewList().size(); i++) {
-			System.out.println(String.format("%d. checked:%s\t%s", i + 1, myList.viewList().get(i).getItemAsChecked(),
-					myList.viewList().get(i).getName()));
-		}
+		
 	}
 
 	public static void toggleItemCheck() {
@@ -75,5 +92,28 @@ public class Application {
 	public static void removeItem() {
 		String name = cr.readInput("Item name to remove: ");
 		myList.del(name);
+	}
+	
+	public static void sortListAscending(){
+		myList.sortByItemAscending();
+		viewList();
+	}
+	
+	public static void sortListDescending(){
+		myList.sortByItemDescending();
+		viewList();
+	}
+	
+	public static void searchItem() {
+		String name = cr.readInput("Item name to search: ");
+		displayAllItem(myList.searchItem(name));
+	}
+	
+	public static void displayAllItem(List<ListItem> yourList)
+	{
+		for (int i = 0; i < yourList.size(); i++) {
+			System.out.println(String.format("%d. checked:%s\t%s", i + 1, yourList.get(i).getItemAsChecked(),
+					yourList.get(i).getName()));
+		}
 	}
 }
