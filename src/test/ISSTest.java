@@ -64,12 +64,22 @@ public class ISSTest {
 		assertEquals(myList.viewList().get(1).getName(), "b");
 	}
 	
-	public void checkOffItem()
+	public void toggleItemCheck()
 	{
 		myList.add(new ListItem("a"));
 		myList.add(new ListItem("b"));
 		
-		myList.checkOffItem("a");
+		myList.toggleItemCheck("a");
+		
+		assertEquals(myList.get(0).getItemAsChecked(), true);
+		assertEquals(myList.get(1).getItemAsChecked(), false);
+		
+		myList.toggleItemCheck("b");
+		
+		assertEquals(myList.get(0).getItemAsChecked(), true);
+		assertEquals(myList.get(1).getItemAsChecked(), true);
+		
+		myList.toggleItemCheck("b");
 		
 		assertEquals(myList.get(0).getItemAsChecked(), true);
 		assertEquals(myList.get(1).getItemAsChecked(), false);

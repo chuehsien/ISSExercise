@@ -30,17 +30,15 @@ public class MyList {
 			}
 		}
 	}
-	
-	public List<ListItem> viewList()
-	{
+
+	public List<ListItem> viewList() {
 		return myList;
 	}
-	
-	public void checkOffItem(String name)
-	{
+
+	public void toggleItemCheck(String name) {
 		for (ListItem i : new ArrayList<>(myList)) {
 			if (i.getName().equals(name)) {
-				i.setItemAsChecked(true);
+				i.setItemAsChecked(!i.getItemAsChecked());
 				return;
 			}
 		}
