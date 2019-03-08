@@ -30,6 +30,21 @@ public class MyList {
 			}
 		}
 	}
+	
+	public List<ListItem> viewList()
+	{
+		return myList;
+	}
+	
+	public void checkOffItem(String name)
+	{
+		for (ListItem i : new ArrayList<>(myList)) {
+			if (i.getName().equals(name)) {
+				i.setItemAsChecked(true);
+				return;
+			}
+		}
+	}
 
 	public ListItem get(int i) {
 		if (i < 0) {

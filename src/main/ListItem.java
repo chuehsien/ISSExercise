@@ -1,10 +1,13 @@
 package main;
 
 import java.util.Date;
+import java.util.List;
 
 public class ListItem {
 	private String name;
 	private Date date;
+	
+	private boolean checked;
 	
 	public ListItem(String name){		
 		this.name = name;
@@ -21,6 +24,16 @@ public class ListItem {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	public void setItemAsChecked(boolean checked)
+	{
+		this.checked = checked;
+	}
+	
+	public boolean getItemAsChecked()
+	{
+		return checked;
 	}
 	
 	public int compareName(ListItem other) {

@@ -1,6 +1,8 @@
 package test;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,6 +52,27 @@ public class ISSTest {
 	public void delFromEmptyList() {
 		myList.del("a");
 		assertEquals(myList.size(),0);
+	}
+	
+	@Test
+	public void viewListItem()
+	{
+		myList.add(new ListItem("a"));
+		myList.add(new ListItem("b"));
+		
+		assertEquals(myList.viewList().get(0).getName(), "a");
+		assertEquals(myList.viewList().get(1).getName(), "b");
+	}
+	
+	public void checkOffItem()
+	{
+		myList.add(new ListItem("a"));
+		myList.add(new ListItem("b"));
+		
+		myList.checkOffItem("a");
+		
+		assertEquals(myList.get(0).getItemAsChecked(), true);
+		assertEquals(myList.get(1).getItemAsChecked(), false);
 	}
 	
 	@Test
